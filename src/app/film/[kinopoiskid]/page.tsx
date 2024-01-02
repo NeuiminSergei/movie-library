@@ -79,8 +79,14 @@ export default observer(function Film({ params: { kinopoiskid } }: Props) {
                     <h1 className="text-6xl mb-5">{title}</h1>
                     <p className="text-2xl mb-2">О фильме:</p>
                     <p>Год производства: {data.year}</p>
-                    {data.countries.map(country => <p key={data.kinopoiskId}>Страна:{country.country}</p>)}
-                    {data.genres.map(genre => <p key={data.kinopoiskId}>Жанр: {genre.genre}</p>)}
+                    <p>
+                      <span className="mr-2">Страна:</span>
+                      {data.countries.map((country, index) => <span className="mr-2" key={data.kinopoiskId + 'genre' + index}>{country.country}</span>)}
+                    </p>
+                    <p>
+                      <span className="mr-2">Жанр:</span>
+                      {data.genres.map((genre, index) => <span className="mr-2" key={data.kinopoiskId + 'genre' + index}>{genre.genre}</span>)}
+                    </p>
                     {
                       data.shortDescription &&
                       <p>Описание: {data.shortDescription}</p>
